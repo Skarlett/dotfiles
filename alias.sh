@@ -10,7 +10,7 @@ alias edit=$EDITOR
 
 ### 
 # Git
-alias gl='ls --group-directories-first --color=auto -d $(git ls-tree $(git branch | grep \* | cut -d " " -f2) --name-only)'
+alias gl='/usr/bin/ls --group-directories-first --color=auto -d $(git ls-tree $(git branch | grep \* | cut -d " " -f2) --name-only)'
 
 ####
 # Helpers
