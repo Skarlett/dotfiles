@@ -8,17 +8,26 @@ source $root/alias.sh
 
 # without checking if they're loaded in          
 # quickly check if we have the functions we need,
-requires_plug() {
-  if [! -f $root/plugs/$1 ]; then
-     echo "requires $root/plugs/$1"
-     exit 1
-  fi
-}
+#requires_plug() {
+#  if [! -f $root/plugs/$1 ]; then
+#     # echo "requires $root/plugs/$1"
+#     return 1
+#  else
+#     return 0
+#  fi
+#}
+
+#requires_bin() {
+#  IFS=':' read -ra paths <<< $PATH
+#  for p in "${paths[@]}"; do
+#    
+#  done
+#  $PATH
+#}
 
 
 # Make local global exec blob
 PATH=$root/bin:$PATH
-
 
 
 # Load plugs

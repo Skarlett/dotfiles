@@ -7,6 +7,7 @@ export EDITOR="nvim"
 alias vim=$EDITOR
 alias nano=$EDITOR
 alias edit=$EDITOR
+alias e=$EDITOR
 
 ### 
 # Git
@@ -32,7 +33,7 @@ alias vol="pactl -- set-sink-volume 0"
 alias explore="xdg-open ."
 alias vscode="/usr/bin/code"
 alias clipboard="xclip -selection c"
-alias psg='ps -A | grep'
+alias psg='ps aux | grep'
 
 ####
 # Python
