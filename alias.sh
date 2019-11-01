@@ -27,6 +27,9 @@ alias ....="cd ../../../"
 alias clr="clear"
 alias cls="clear"
 
+alias tcurl="curl --socks5 127.0.0.1:9050 "
+
+
 ####
 # Extras
 alias vol="pactl -- set-sink-volume 0"
@@ -34,6 +37,7 @@ alias explore="xdg-open ."
 alias vscode="/usr/bin/code"
 alias clipboard="xclip -selection c"
 alias psg='ps aux | grep'
+alias open="xdg-open"
 
 ####
 # Python
