@@ -12,7 +12,11 @@ alias e=$EDITOR
 ### 
 # Git
 alias gl="'/usr/bin/ls' --color=auto -d \$(git ls-tree -rt \$(git branch | grep \\* | cut -d \" \" -f2) --name-only)"
-alias gsr="git reset --soft HEAD^"
+alias gr="git reset --soft HEAD^"
+alias ghr="git reset --hard HEAD^"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+
 ####
 # Helpers
 alias cp="cp -i -r"
