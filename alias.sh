@@ -12,7 +12,7 @@ alias e=$EDITOR
 ### 
 # Git
 alias gl="'/usr/bin/ls' --color=auto -d \$(git ls-tree -rt \$(git branch | grep \\* | cut -d \" \" -f2) --name-only)"
-
+alias gsr="git reset --soft HEAD^"
 ####
 # Helpers
 alias cp="cp -i -r"
