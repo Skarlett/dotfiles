@@ -1,0 +1,66 @@
+calc() {
+	bc -l <<< "$@"
+}
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.jar)       jar xf $1    ;; 
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+
+rustdocs() {
+  if  (($# != 1)); then
+    echo "this tool downloads rust documentation for all the projects in a directory"
+    echo "usage: rustfmt <projects root directory>"
+  fi
+  
+  for file in $(find $1 -name "Cargo.toml"); do
+    dir=$(dirname $file);
+    pushd $dir;
+      cargo doc
+    popd
+  done
+}
+
+spawn() {
+  if [[ $# -eq 0 ]]; then
+    disown
+  else
+    $@ > /dev/null 2>&1 &; disown 
+  fi
+}
+
+transfer() {                                                                                                                  
+  if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage: echo transfer /tmp/test.md cat /tmp/test.md | transfer test.md
+";                                                                                                                            
+      return 1;                                                                                                               
+  fi                                                                                                                          
+  tmpfile=$( mktemp -t transferXXX )                                                                                          
+  if tty -s;                                                                                                                  
+      then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g')                                                         
+      curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile                                      
+  else
+      curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile                                             
+  fi
+  cat $tmpfile
+  rm -f $tmpfile
+}
+
+
