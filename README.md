@@ -10,7 +10,7 @@ echo 'source "$HOME/.config/bashrc/load.sh"' >> $HOME/.bashrc
 
 
 -----
-### .local/bin
+## .local/bin
 .local/bin is usually apart of `PATH`. These are are my binary files I always tag along
 
 |Binary | pragmatic expression |Description |
@@ -22,7 +22,7 @@ echo 'source "$HOME/.config/bashrc/load.sh"' >> $HOME/.bashrc
 
 -----
 
-### .config/bashrc/functions
+## .config/bashrc/functions
 
 |function | pragmatic expression |Description |
 --- | --- | ---
@@ -36,3 +36,17 @@ echo 'source "$HOME/.config/bashrc/load.sh"' >> $HOME/.bashrc
 |sizeof_gz|`sizeof_gz <file>`|compares original file size to gunzipped size|
 |rustdocs|`rustdocs <cargo dir>`| pulls in top level dependency documentation|
 |compress|`compress <dir/file>`| produce tarball (`.tar.gz`) using `pigz`, `gzip` or `zopfli`
+
+
+-----
+
+
+## .config/bashrc/alias
+Theres more, but these are the have the most obfuscated definitions.
+
+|alias | pragmatic expression |Description |
+--- | --- | ---
+|vol|`vol (+/-) 10%`| control pulseaudio from the terminal|
+|glog|`glog`|show commits colorized and piped into less|
+|gd|`gd <file_a>`|git diff colorized and piped into less|
+|gl|`gl`|`ls` but only shows files tracked by `git`|
