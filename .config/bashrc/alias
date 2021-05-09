@@ -30,18 +30,17 @@ alias ...="cd ../../"
 alias ....="cd ../../../"
 alias clr="clear"
 alias cls="clear"
-
+alias psg='ps aux | grep'
 alias tcurl="curl --socks5 127.0.0.1:9050 "
 
 ####
 # Desktop Helpers
-
 alias vol="pactl -- set-sink-volume 0" # Control volume (pulseaudio) `vol +5%`
 alias explore="xdg-open ."
 alias vscode="/usr/bin/code"
 alias clipboard="xclip -selection c"
-alias psg='ps aux | grep'
 alias open="xdg-open"
+alias spotify="spawn snap run spotify"
 
 ####
 # Python
