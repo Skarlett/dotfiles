@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 ###################
 
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+# Add expression - NOTE
+# certain symbols need backslashes
+# eg 2 \* 2
 calc() {
 	bc -l <<< "$@"
 }
 
+# Extract files from (maybe compressed?) archive
 ex ()
 {
   if [ -f $1 ] ; then
