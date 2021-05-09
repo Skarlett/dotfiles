@@ -32,6 +32,7 @@ alias clr="clear"
 alias cls="clear"
 alias psg='ps aux | grep'
 alias tcurl="curl --socks5 127.0.0.1:9050 "
+alias tre="tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;"
 
 ####
 # Desktop Helpers
