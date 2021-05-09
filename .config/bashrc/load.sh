@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 root=$(dirname $0)
+PATH=$PATH:$HOME/.local/bin
+export PATH
 
 source $root/profile
 source $root/alias
