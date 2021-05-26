@@ -139,7 +139,8 @@ function getcertnames() {
 
 # Spawns process outside of shell access
 spawn() {
-  $@ > /dev/null 2>&1 &; disown;
+  $@ > /dev/null 2>&1 &
+  disown
 }
 
 # uploads files to transfer.sh/
