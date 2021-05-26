@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 root=$(dirname $0)
+
+if [[ ${#root} -eq 0 ]]; then # fix for ubuntnu
+  root="$HOME/.config/bashrc"
+fi
+
 PATH=$PATH:$HOME/.local/bin
 export PATH
 
