@@ -1,0 +1,3 @@
+[submodule "bashrc/pkg/sizeof-pl"]
+	path = bashrc/pkg/sizeof-pl
+	url = https://github.com/Skarlett/sizeof-pl
