@@ -4,6 +4,7 @@
 [submodule ".config/bashrc/pkg/dedup"]
 	path = /home/ghost/.config/bashrc/pkg/dedup
 	url = https://github.com/jpillora/dedup
-[submodule ".config/bashrc/pkg/Bash-snippets"]
+
+[submodule "/home/ghost/.config/bashrc/pkg/Bash-snippets"]
 	path = /home/ghost/.config/bashrc/pkg/Bash-snippets
 	url = https://github.com/alexanderepstein/Bash-Snippets
