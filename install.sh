@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 main() {
   if [ ! -e $HOME ]; then
@@ -28,11 +29,11 @@ main() {
   cd $PREV
   curl https://i.jpillora.com/dedup! | sudo bash
   
-  alias_hash=$(md5sum "$HOME/.config/bashrc/alias")
+  alias_hash=$(md5sum "$HOME/.config/bashrc/alias" | cut -d ' ' -f 1)
   
   while true; do
     nano "$HOME/.config/bashrc/alias"
-    if [ $alias_hash -eq $(md5sum "$HOME/.config/bashrc/alias") ]; then
+    if [ $alias_hash = "$(md5sum $HOME/.config/bashrc/alias | cut -d ' ' -f 1)" ]; then
       echo "No changes were made to the configuration."
       echo "This configuration might break 'ls' 'nano' 'vi' "
       echo "Are you sure? [y/N]: "
@@ -47,7 +48,9 @@ main() {
   done
   
   echo "loading in changes"
-  source $HOME/.bashrc
+  echo "execute the following to apply the changes..."
+  echo "\t\tsource ~/.bashrc"
+  echo "You may delete the dotfiles/ directory now."
 }
 
 main
