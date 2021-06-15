@@ -1,12 +1,9 @@
 # dotfiles
 
-To load dot files
+Install
 ```
-git clone https://github.com/Skarlett
-mv dotfiles/* ~
-echo 'source "$HOME/.config/bashrc/load.sh"' >> $HOME/.bashrc
+curl https://raw.githubusercontent.com/Skarlett/dotfiles/master/install.sh | bash
 ```
-
 
 
 -----
