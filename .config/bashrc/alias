@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-# Stores a bunch of aliases
-# Skarlett
+###################
+# Hello this is my personal configuration.
+# This file will **definitely** screw up your bash configuration
+# if you don't look through it and comment out what you don't need.
+# e.g. `ls` -> `lsd`
 ####
 # Terminal Editor
 export EDITOR="nvim"
