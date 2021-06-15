@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-root=$(dirname $0)
+root=$(dirname $0 2>/dev/null)
 
 if [[ ${#root} -eq 0 ]]; then # fix for ubuntnu
   root="$HOME/.config/bashrc"
