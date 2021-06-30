@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -xe
 
 hash_file() {
   # First arg is the filename
@@ -20,18 +20,18 @@ main() {
 
   git clone --recursive https://github.com/Skarlett/dotfiles
   
-  mv dotfiles/.local/* $HOME/.local/
-  mv dotfiles/.config/* $HOME/.config/
+  mv dotfiles/.local/* "$HOME/.local"
+  mv dotfiles/.config/* "$HOME/.config"
 
-  echo "" >> $HOME/.bashrc/
-  echo "source $HOME/.config/bashrc/load.sh # Added by Skarlett/dotfiles" >> $HOME/.bashrc
+  echo "" >> "$HOME/.bashrc"
+  echo "source $HOME/.config/bashrc/load.sh # Added by Skarlett/dotfiles" >> "$HOME/.bashrc"
   
   echo "installing packages..."
   set -x
-  sudo mv $HOME/.config/bashrc/pkg/sizeof-pl/sizeof.pl /usr/local/bin/sizeof
+  sudo mv "$HOME/.config/bashrc/pkg/sizeof-pl/sizeof.pl" "/usr/local/bin/sizeof"
 
-  local PREV=$PWD
-  cd $HOME/.config/bashrc/pkg/Bash-snippets/
+  local PREV="$PWD"
+  cd "$HOME/.config/bashrc/pkg/Bash-snippets/"
   sudo ./install.sh all
   cd $PREV
   curl https://i.jpillora.com/dedup! | sudo bash
