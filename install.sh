@@ -39,7 +39,7 @@ main() {
   alias_hash=$(hash_file $HOME/.config/bashrc/alias)
   
   while true; do
-    nano "$HOME/.config/bashrc/alias"
+    bash -i nano "$HOME/.config/bashrc/alias"
     if [ $alias_hash = "$(hash_file $HOME/.config/bashrc/alias)" ]; then
       echo "No changes were made to the configuration."
       echo "This configuration might break 'ls' 'nano' 'vi' "
