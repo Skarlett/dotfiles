@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+hash_file() {
+  # First arg is the filename
+  md5sum $HOME/.config/bashrc/alias | cut -d ' ' -f 1
+}
+
 main() {
   if [ ! -e $HOME ]; then
     echo "Must be ran on account with \$HOME set."
@@ -14,10 +19,12 @@ main() {
   fi
 
   git clone --recursive https://github.com/Skarlett/dotfiles
-    
-  mv dotfiles/.local/* $HOME/.local
-  mv dotfiles/.config/* $HOME/.config
-  echo "\nsource $HOME/.config/bashrc/load.sh # Added by Skarlett/dotfiles" >> $HOME/.bashrc
+  
+  mv dotfiles/.local/* $HOME/.local/
+  mv dotfiles/.config/* $HOME/.config/
+
+  echo "" >> $HOME/.bashrc/
+  echo "source $HOME/.config/bashrc/load.sh # Added by Skarlett/dotfiles" >> $HOME/.bashrc
   
   echo "installing packages..."
   set -x
@@ -29,11 +36,11 @@ main() {
   cd $PREV
   curl https://i.jpillora.com/dedup! | sudo bash
   
-  alias_hash=$(md5sum "$HOME/.config/bashrc/alias" | cut -d ' ' -f 1)
+  alias_hash=$(hash_file $HOME/.config/bashrc/alias)
   
   while true; do
     nano "$HOME/.config/bashrc/alias"
-    if [ $alias_hash = "$(md5sum $HOME/.config/bashrc/alias | cut -d ' ' -f 1)" ]; then
+    if [ $alias_hash = "$(hash_file $HOME/.config/bashrc/alias)" ]; then
       echo "No changes were made to the configuration."
       echo "This configuration might break 'ls' 'nano' 'vi' "
       echo "Are you sure? [y/N]: "
