@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 # Assign env variables here
-EDITOR="nvim"
+export EDITOR="nvim"
+export PROC_MON="bashtop"
+
+export SHOW_BANNER=1
+
+alias a="b"
