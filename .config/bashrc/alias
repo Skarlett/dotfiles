@@ -11,10 +11,12 @@ alias nano=$EDITOR
 alias edit=$EDITOR
 alias e=$EDITOR
 
+alias ssh="TERM=xterm-256color ssh"
+
 ###
 # GUI bombs
-alias htop=$PROC_MON
 alias top=$PROC_MON
+
 ### 
 # Git
 alias gl="'/usr/bin/ls' --color=auto -d \$(git ls-tree -rt \$(git branch | grep \\* | cut -d \" \" -f2) --name-only)"
@@ -23,6 +25,14 @@ alias grs=gr
 alias ghr="git reset --hard HEAD~1"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+
+#############
+# ls
+alias sl='ls'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 ####
 # Helpers
@@ -58,12 +68,13 @@ alias py3="python3"
 alias pip2="python -m pip"
 alias pip3="python3 -m pip"
 
-#############
-# ls
-alias ls='lsd'
-alias sl='ls'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+###
+### Breaking system changes below
+###
+
+# https://github.com/sharkdp/bat
+alias cat="bat"
+# https://github.com/Peltoche/lsd
+alias ls="lsd"
+
 
