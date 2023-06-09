@@ -1,5 +1,5 @@
 # dotfiles
-
+# archived: now using https://github.com/Skarlett/nixos-config
 Install
 ```
 curl https://raw.githubusercontent.com/Skarlett/dotfiles/master/install.sh | bash
